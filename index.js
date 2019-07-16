@@ -8,10 +8,10 @@ function HtmlReplaceWebpackPlugin(options) {
   })
 
   this.replace = function(htmlPluginData, callback) {
-    if (typeof option.outputName == 'string' && option.outputName != htmlPluginData.outputName) {
+    options.forEach(option => {
+      if (typeof option.outputName == 'string' && option.outputName != htmlPluginData.outputName) {
         return;
       }
-    options.forEach(option => {
       if (typeof option.replacement === 'function') {
         var matches = null
         var isPatternValid = true
